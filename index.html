@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de tiempos</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <nav></nav>
+    <div class="conversor">
+        
+        <p>Frames</p>
+        <input type="number" value="24" min="0" id="frames">
+        <br>
+        <div id="primerValor">
+            <p>Primera marca</p>
+            <input type="number" value="0" min="0" id="primeraHora">
+            <a>:</a>
+            <input type="number" value="0" min="0" max="59" id="primerMinuto">
+            <a>:</a>
+            <input type="number" value="0" min="0" max="59" id="primerSegundo">
+            <a>:</a>
+            <input type="number" value="0" min="0" id="primerFrame">
+        </div>
+        <div id="segundoValor">
+            <p>Segunda marca</p>
+            <input type="number" value="0" min="0" id="segundaHora">
+            <a>:</a>
+            <input type="number" value="0" min="0" max="59" id="segundoMinuto">
+            <a>:</a>
+            <input type="number" value="0" min="0" max="59" id="segundoSegundo">
+            <a>:</a>
+            <input type="number" value="0" min="0" id="segundoFrame">
+        </div>
+        <br>
+        <button onclick="resolver()">Calcular</button>  
+    </div>
+</body>
+</html>
