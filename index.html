@@ -9,32 +9,39 @@
 </head>
 <body>
     <div class="conversor">
-        
-        <p>Frames</p>
-        <input type="number" value="24" min="0" id="frames">
+        <div id="top">
+            <a>Frames</a>
+            <input type="number" value="24" min="0" id="frames">
+        </div>
         <br>
         <div id="primerValor">
-            <p>Primera marca</p>
-            <input type="number" value="0" min="0" id="primeraHora">
-            <a>:</a>
-            <input type="number" value="0" min="0" max="59" id="primerMinuto">
-            <a>:</a>
-            <input type="number" value="0" min="0" max="59" id="primerSegundo">
-            <a>:</a>
-            <input type="number" value="0" min="0" id="primerFrame">
+            <a>Primer TC</a>
+            <div id="valores">
+                <input type="number" value="0" min="0" id="primeraHora">
+                <a id="separador">:</a>
+                <input type="number" value="0" min="0" max="59" id="primerMinuto">
+                <a id="separador">:</a>
+                <input type="number" value="0" min="0" max="59" id="primerSegundo">
+                <a id="separador">:</a>
+                <input type="number" value="0" min="0" id="primerFrame">    
+            </div>
         </div>
         <div id="segundoValor">
-            <p>Segunda marca</p>
-            <input type="number" value="0" min="0" id="segundaHora">
-            <a>:</a>
-            <input type="number" value="0" min="0" max="59" id="segundoMinuto">
-            <a>:</a>
-            <input type="number" value="0" min="0" max="59" id="segundoSegundo">
-            <a>:</a>
-            <input type="number" value="0" min="0" id="segundoFrame">
+            <a>Segundo TC</a>
+            <div id="valores">
+                <input type="number" value="0" min="0" id="segundaHora">
+                <a id="separador">:</a>
+                <input type="number" value="0" min="0" max="59" id="segundoMinuto">
+                <a id="separador">:</a>
+                <input type="number" value="0" min="0" max="59" id="segundoSegundo">
+                <a id="separador">:</a>
+                <input type="number" value="0" min="0" id="segundoFrame">
+            </div>
         </div>
         <br>
-        <button onclick="resolver()">Calcular</button>  
+        <div id="btn">
+            <button onclick="resolver()">Calcular</button>  
+        </div>
     </div>
 </body>
 </html>

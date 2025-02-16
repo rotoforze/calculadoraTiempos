@@ -1,28 +1,45 @@
-.conversor {
+* {
+    min-width: 10vw;
+    min-height: 10vh;
+}
+body {
     display: flex;
-    flex-direction: column;
-    width: 50vw;
+    justify-content: center;
 }
-a{
-    text-shadow: 1px 1px grey;
-    font-size: 5vh;
-}
-p{
-    font-size: 1.5vw;  
-}
-input {
-    width: 8vw;
-    border: none;
-    border-bottom: 1vh solid black;
-    width: 4vw;
-    font-size: 2vw;
+.conversor {
     text-align: center;
 }
+a#separador{
+    text-shadow: 1px 2px grey;
+    font-size: calc(3vh + 1vw);
+}
+a{
+    font-size: calc(2vh + 2vw); 
+    padding-bottom: -20vh; 
+}
+#primerValor, #segundoValor{
+    margin-top: 5vh;
+}
+input {
+    border: none;
+    border-bottom: calc(0.1vh + 0.1vw) solid black;
+    width: calc(2vh + 2vw);
+    height: 5vh;
+    min-height: 2vh;
+    font-size: calc(2vh + 2vw);
+    text-align: center;
+}
+#valores{
+    display: flex;
+    justify-content: center;
+}
 button{
-    font-size: 1.30vw;
-    width: 8vw;
+    font-size: calc(1vh + 1vw);
+    width: calc(3vh + 3vw);
+    min-height: 5vh;
+    min-width: 25vw;
 }
 button:hover {
-    font-size: 1.35vw;
-    width: 8.2vw;
+    font-size: calc(1vh + 1vw);
+    width: calc(1vh + 1vw);
 }
