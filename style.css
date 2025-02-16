@@ -19,10 +19,10 @@ input {
     text-align: center;
 }
 button{
-    font-size: 1vw;
-    width: 5vw;
+    font-size: 1.30vw;
+    width: 8vw;
 }
 button:hover {
-    font-size: 1.05vw;
-    width: 5.2vw;
+    font-size: 1.35vw;
+    width: 8.2vw;
 }
