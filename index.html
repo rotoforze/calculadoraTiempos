@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="main.js"></script>
 </head>
+
 <body>
     <div class="conversor">
         <div id="top">
@@ -14,6 +16,9 @@
             <input type="number" value="24" min="0" id="frames">
         </div>
         <br>
+        <div class="error" hidden>
+            <b></b>
+        </div>
         <div id="primerValor">
             <a>Primer TC</a>
             <div id="valores">
@@ -23,7 +28,7 @@
                 <a id="separador">:</a>
                 <input type="number" value="0" min="0" max="59" id="primerSegundo">
                 <a id="separador">:</a>
-                <input type="number" value="0" min="0" id="primerFrame">    
+                <input type="number" value="0" min="0" id="primerFrame">
             </div>
         </div>
         <div id="segundoValor">
@@ -40,8 +45,13 @@
         </div>
         <br>
         <div id="btn">
-            <button onclick="resolver()">Calcular</button>  
+            <div>
+                <input type="checkbox" name="tipoCalculo" id="tipoCalculo">
+                <label for="tipoCalculo">Restar</label>
+            </div>
+            <button onclick="resolver()">Calcular</button>
         </div>
     </div>
 </body>
+
 </html>

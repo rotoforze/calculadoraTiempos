@@ -1,44 +1,81 @@
 function resolver() {
+    document.querySelector('.error').hidden = true;
+    const frames = document.getElementById("frames").value;
+    const tipoCalculo = document.querySelector('#tipoCalculo').checked;
 
-    let frames = document.getElementById("frames").value;
+    const primeraHora = Number(document.getElementById("primeraHora").value);
+    const segundaHora = Number(document.getElementById("segundaHora").value);
 
-    let primeraHora = Number(document.getElementById("primeraHora").value);
-    let primerMinuto = Number(document.getElementById("primerMinuto").value);
-    let primerSegundo = Number(document.getElementById("primerSegundo").value);
-    let primerFrame = Number(document.getElementById("primerFrame").value);
+    const primerMinuto = Number(document.getElementById("primerMinuto").value);
+    const segundoMinuto = Number(document.getElementById("segundoMinuto").value);
 
-    let segundaHora = Number(document.getElementById("segundaHora").value);
-    let segundoMinuto = Number(document.getElementById("segundoMinuto").value);
-    let segundoSegundo = Number(document.getElementById("segundoSegundo").value);
-    let segundoFrame = Number(document.getElementById("segundoFrame").value);
+    const primerSegundo = Number(document.getElementById("primerSegundo").value);
+    const segundoSegundo = Number(document.getElementById("segundoSegundo").value);
 
-    console.log(primeraHora+":"+primerMinuto+":"+primerSegundo+":"+primerFrame)
-    console.log(segundaHora+":"+segundoMinuto+":"+segundoSegundo+":"+segundoFrame)
+    const primerFrame = Number(document.getElementById("primerFrame").value);
+    const segundoFrame = Number(document.getElementById("segundoFrame").value);
 
-    let resultadoHora = primeraHora + segundaHora;
-    let resultadoMinuto = primerMinuto + segundoMinuto;
-    let resultadoSegundo = primerSegundo + segundoSegundo;
-    let resultadoFrame = primerFrame + segundoFrame;
-    console.log(resultadoHora+":"+resultadoMinuto+":"+resultadoSegundo+":"+resultadoFrame+"/"+frames)
+    var resultadoHora = !tipoCalculo ? primeraHora + segundaHora : primeraHora - segundaHora;
+    var resultadoMinuto = !tipoCalculo ? primerMinuto + segundoMinuto : primerMinuto - segundoMinuto;
+    var resultadoSegundo = !tipoCalculo ? primerSegundo + segundoSegundo : primerSegundo - segundoSegundo;
+    var resultadoFrame = !tipoCalculo ? primerFrame + segundoFrame : primerFrame - segundoFrame;
+    console.log(resultadoHora, resultadoMinuto, resultadoSegundo, resultadoFrame)
+
+
+    while (resultadoHora < 0 && primeraHora > segundaHora && tipoCalculo) {
+        console.log(resultadoHora + "<0")
+        resultadoHora++;
+        resultadoMinuto -= 60;
+    }
+
+    while (resultadoMinuto < 0 && primerMinuto > segundoMinuto && tipoCalculo) {
+        console.log(resultadoMinuto + "<0");
+        resultadoMinuto++;
+        resultadoSegundo -= 60;
+    }
+
+    while (resultadoSegundo < 0 && primerSegundo > segundoSegundo && tipoCalculo) {
+        console.log(resultadoSegundo + "<0");
+        resultadoSegundo++;
+        resultadoFrame -= frames;
+    }
+
+    try {
+        if (resultadoFrame < 0) {
+            throw new Error('no se puede deber frames.');
+        } else if (resultadoSegundo < 0) {
+            throw new Error('no se puede deber segundos.');
+        } else if (resultadoMinuto < 0) {
+            throw new Error('no se puede deber minutos.');
+        } else if (resultadoHora < 0) {
+            throw new Error('no se puede deber horas.');
+        }
+    } catch (error) {
+        console.error(error);
+        document.querySelector('.error').hidden = false;
+        document.querySelector('.error b').textContent = error;
+        return null;
+    }
 
     while (resultadoFrame >= frames) {
-        console.log(resultadoFrame+">"+frames)
+        console.log(resultadoFrame + ">" + frames)
         resultadoFrame -= frames;
         resultadoSegundo++;
     }
 
+
     while (resultadoSegundo >= 60) {
-        console.log(resultadoSegundo+">60")
+        console.log(resultadoSegundo + ">60")
         resultadoSegundo -= 60;
         resultadoMinuto++;
     }
 
     while (resultadoMinuto >= 60) {
-        console.log(resultadoMinuto+">60")
+        console.log(resultadoMinuto + ">60")
         resultadoMinuto -= 60;
         resultadoHora++;
     }
-    
+
     document.getElementById("primeraHora").value = resultadoHora;
     document.getElementById("primerMinuto").value = resultadoMinuto;
     document.getElementById("primerSegundo").value = resultadoSegundo;
